@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+//use Swoole\Http\Server;
+//use Swoole\Http\Request;
+//use Swoole\Http\Response;
+//
+//$server = new Swoole\HTTP\Server("0.0.0.0", 9501);
+//
+//$server->on("Start", function(Server $server)
+//{
+//    echo "Swoole http server is started at http://127.0.0.1:9501\n";
+//});
+//
+//$server->on("Request", function(Request $request, Response $response)
+//{
+//    $response->header("Content-Type", "text/plain");
+//    $response->end("Hello World\n");
+//});
+//
+//$server->start();
+
+$ws = new Swoole\WebSocket\Server('0.0.0.0', 9501);
+$ws->on(
+    'message',
+    function (Swoole\WebSocket\Server $ws, Swoole\WebSocket\Frame $frame) {
+        $ws->push($frame->fd, "Hello, {$frame->data}");
+    }
+);
+$ws->start();

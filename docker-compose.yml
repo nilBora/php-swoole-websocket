@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  swoole:
+    container_name: swool_wbsocket_php
+    build:
+      context: .
+    user: 1000:1000
+    volumes:
+      - ~/.composer/cache/:/.composer_cache/:rw
+      - .:/app:rw
+    working_dir: /app
+    restart: on-failure
+    #command: '/app/server'
+    #command: '/app/bin/console swoole:server:run'
+    ports:
+      - 127.0.0.1:9501:9501
+      - 9200:9200
