@@ -1,0 +1,5 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+json-rpc-endpoint:
+  resource: '@JsonRpcHttpServerBundle/Resources/config/routing/endpoint.xml'
