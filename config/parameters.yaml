@@ -1,0 +1,5 @@
+parameters:
+  app.env: '%env(APP_ENV)%'
+  app.secret: '%env(APP_SECRET)%'
+  app.service_name: '%env(CI_SERVICE_NAME)%'
+  app.version: '%env(APP_VERSION)%'

@@ -1,0 +1,5 @@
+services:
+
+  Jtrw\Micro\Poc\Rpc\PingMethod:
+    public: false
+    tags: [{ method: 'ping', name: 'json_rpc_http_server.jsonrpc_method' }]

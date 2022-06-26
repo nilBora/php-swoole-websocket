@@ -18,7 +18,7 @@ RUN export SWOOLE_VERSION=4.5.9 && cd /tmp && \
     rm -rf /tmp/*
 
 WORKDIR /app
-ENTRYPOINT ["/app/server"]
+#ENTRYPOINT ["/app/server"]
 
 #RUN chmod +x /app/entrypoint.sh
 #ENTRYPOINT ["/app/entrypoint.sh"]
