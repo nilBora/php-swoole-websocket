@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jtrw\Micro\Poc\Rpc;
+namespace Jtrw\Micro\Poc\Rpc\Presentation\Rpc;
 
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
 
