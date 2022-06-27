@@ -7,6 +7,10 @@ services:
     autoconfigure: true
     public: false
 
+  ping.json_rpc:
+    class: Jtrw\Micro\Poc\Rpc\Presentation\Rpc\PingMethod
+    tags:
+      - { name: 'json_rpc_http_server.jsonrpc_method', method: 'ping' }
 #Jtrw\Micro\Poc\Rpc\:
 #  resource: '../src/*'
-#  exclude: '../src/{Kernel.php,Application/Dto/,Domain/Command,Domain/Entity,Domain/Event,Domain/Exception,Domain/Query,Domain/ValueObject,Infrastructure/Migrations,Presentation/Cli}'
+#  exclude: '../src/{Kernel.php}'
