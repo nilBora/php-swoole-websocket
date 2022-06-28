@@ -1,0 +1,28 @@
+parameters:
+  env(HOST): "0.0.0.0"
+  env(PORT): "9501"
+  env(API_HOST): "0.0.0.0"
+  env(API_PORT): "9200"
+  env(SWOOLE_LOG_STREAM_PATH): "%kernel.logs_dir%/swoole_%kernel.environment%.log"
+
+swoole:
+  http_server:
+    host: "%env(HOST)%"
+    port: "%env(PORT)%"
+    running_mode: process
+    socket_type: tcp
+    trusted_hosts:
+      - "%swoole.trusted_hosts%"
+    trusted_proxies:
+      - "%swoole.trusted_proxies%"
+    hmr: auto
+    api:
+      enabled: true
+      host: "%env(API_HOST)%"
+      port: "%env(API_PORT)%"
+    static:
+      public_dir: "%kernel.project_dir%/public"
+      strategy: default
+    settings:
+      log_file: '%env(resolve:SWOOLE_LOG_STREAM_PATH)%'
+      task_worker_count: auto

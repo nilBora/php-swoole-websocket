@@ -13,5 +13,6 @@ services:
     restart: on-failure
     command: '/app/bin/console swoole:server:run'
     ports:
-      - 127.0.0.1:9501:9501
+      - 9501:9501
+      - 9502:9502
       - 9200:9200

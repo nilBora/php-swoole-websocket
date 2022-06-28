@@ -3,3 +3,6 @@ parameters:
   app.secret: '%env(APP_SECRET)%'
   app.service_name: '%env(CI_SERVICE_NAME)%'
   app.version: '%env(APP_VERSION)%'
+
+  swoole.trusted_proxies: '%env(APP_TRUSTED_PROXIES)%'
+  swoole.trusted_hosts: '%env(APP_TRUSTED_HOSTS)%'
