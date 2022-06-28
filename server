@@ -20,7 +20,7 @@
 //
 //$server->start();
 
-$ws = new Swoole\WebSocket\Server('0.0.0.0', 9501);
+$ws = new Swoole\WebSocket\Server('0.0.0.0', 9503);
 $ws->on(
     'message',
     function (Swoole\WebSocket\Server $ws, Swoole\WebSocket\Frame $frame) {
