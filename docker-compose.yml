@@ -26,6 +26,6 @@ services:
       - .:/app:rw
     working_dir: /app
     restart: on-failure
-    #command: '/app/bin/console swoole:server:run'
+    command: '/app/server'
     ports:
       - 9502:9502
