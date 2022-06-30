@@ -5,6 +5,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.2.5",
+        "ext-swoole": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "k911/swoole-bundle": "^0.8.3",
