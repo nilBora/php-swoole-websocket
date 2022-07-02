@@ -2,6 +2,7 @@
 
 namespace Jtrw\Micro\Poc\Rpc\SwooleWebSocket;
 
+use Jtrw\Micro\Poc\Rpc\SwooleWebSocket\Exception\RpcMethodNotFoundException;
 use Swoole\WebSocket\Server;
 use Swoole\WebSocket\Frame;
 use Swoole\Http\Request;
@@ -98,7 +99,7 @@ class WebSocket
     {
         $method = $data['method'] ?? null;
         if (!$method) {
-            throw new \Exception("Must Me Method in RPC");
+            throw new RpcMethodNotFoundException("Must Me Method in RPC");
         }
         
         return $data['method'];
