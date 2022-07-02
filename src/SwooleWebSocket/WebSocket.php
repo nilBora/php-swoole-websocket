@@ -10,19 +10,54 @@ class WebSocket
 {
     protected Server $server;
     
+    protected const SYSTEM_HANDLERS = [
+        'Open',
+        'Close',
+        'Start',
+        'message'
+    ];
+    
     public function __construct(array $options)
     {
         $host = $options['host'] ?? '';
         $port = $options['port'] ?? '';
         $this->server = new Server($host, $port);
     }
+    
     public function start()
     {
-        $this->server->on("Start", function(Server $server)
-        {
-            echo "Swoole WebSocket Server started at 127.0.0.1:9501\n";
-        });
+        $this->init();
+        
+        $this->server->start();
+    }
     
+    protected function init()
+    {
+        foreach (static::SYSTEM_HANDLERS as $name) {
+            $methodName = strtolower($name)."Handler";
+            if (method_exists($this, $methodName)) {
+                $this->$methodName();
+            }
+        }
+    }
+    
+    protected function messageHandler()
+    {
+        $this->server->on(
+            'message',
+            function (Server $ws, Frame $frame) {
+                $data = json_decode($frame->data, true, JSON_THROW_ON_ERROR);
+            
+                $instance = $this->getControllerInstance($data);
+                $responseDto = $instance->apply($data['params']);
+            
+                $ws->push($frame->fd, $responseDto->toJson());
+            }
+        );
+    }
+    
+    protected function openHandler()
+    {
         $this->server->on('Open', function(Server $server, Request $request)
         {
             echo "connection open: {$request->fd}\n";
@@ -32,25 +67,22 @@ class WebSocket
                 $server->push($request->fd, json_encode(["hello", time()]));
             });
         });
-        
-        $this->server->on(
-            'message',
-            function (Server $ws, Frame $frame) {
-                $data = json_decode($frame->data, true, JSON_THROW_ON_ERROR);
-
-                $instance = $this->getControllerInstance($data);
-                $responseDto = $instance->apply($data['params']);
-                
-                $ws->push($frame->fd, $responseDto->toJson());
-            }
-        );
+    }
     
+    protected function closeHandler()
+    {
         $this->server->on('Close', function(Server $server, int $fd)
         {
             echo "connection close: {$fd}\n";
         });
-        
-        $this->server->start();
+    }
+    
+    protected function startHundler(): void
+    {
+        $this->server->on("Start", function(Server $server)
+        {
+            echo "Swoole WebSocket Server started at 127.0.0.1:9501\n";
+        });
     }
     
     protected function getControllerInstance(array $data): WebsocketJsonRpcMethodInterface
