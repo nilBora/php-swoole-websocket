@@ -10,11 +10,16 @@ class WebSocket
 {
     protected Server $server;
     
+    protected const OPEN_HANDLER    = "Open";
+    protected const CLOSE_HANDLER   = "Close";
+    protected const START_HANDLER   = "Start";
+    protected const MESSAGE_HANDLER = "message";
+    
     protected const SYSTEM_HANDLERS = [
-        'Open',
-        'Close',
-        'Start',
-        'message'
+        self::OPEN_HANDLER,
+        self::CLOSE_HANDLER,
+        self::START_HANDLER,
+        self::MESSAGE_HANDLER
     ];
     
     public function __construct(array $options)
@@ -47,10 +52,10 @@ class WebSocket
             'message',
             function (Server $ws, Frame $frame) {
                 $data = json_decode($frame->data, true, JSON_THROW_ON_ERROR);
-            
+                
                 $instance = $this->getControllerInstance($data);
                 $responseDto = $instance->apply($data['params']);
-            
+                
                 $ws->push($frame->fd, $responseDto->toJson());
             }
         );
@@ -58,12 +63,10 @@ class WebSocket
     
     protected function openHandler()
     {
-        $this->server->on('Open', function(Server $server, Request $request)
-        {
+        $this->server->on('Open', function (Server $server, Request $request) {
             echo "connection open: {$request->fd}\n";
-        
-            $server->tick(1000, function() use ($server, $request)
-            {
+            
+            $server->tick(1000, function () use ($server, $request) {
                 $server->push($request->fd, json_encode(["hello", time()]));
             });
         });
@@ -71,16 +74,14 @@ class WebSocket
     
     protected function closeHandler()
     {
-        $this->server->on('Close', function(Server $server, int $fd)
-        {
+        $this->server->on('Close', function (Server $server, int $fd) {
             echo "connection close: {$fd}\n";
         });
     }
     
     protected function startHundler(): void
     {
-        $this->server->on("Start", function(Server $server)
-        {
+        $this->server->on("Start", function (Server $server) {
             echo "Swoole WebSocket Server started at 127.0.0.1:9501\n";
         });
     }
