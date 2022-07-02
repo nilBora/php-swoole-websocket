@@ -27,12 +27,12 @@ class WebSocket
         $host = $options['host'] ?? '';
         $port = $options['port'] ?? '';
         $this->server = new Server($host, $port);
+    
+        $this->init();
     }
     
     public function start()
     {
-        $this->init();
-        
         $this->server->start();
     }
     
