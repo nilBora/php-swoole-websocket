@@ -2,6 +2,7 @@
 
 namespace Jtrw\Micro\Poc\Rpc\SwooleWebSocket;
 
+use Jtrw\Micro\Poc\Rpc\SwooleWebSocket\Exception\RpcMethodNotFoundException;
 use Swoole\WebSocket\Server;
 use Swoole\WebSocket\Frame;
 use Swoole\Http\Request;
@@ -10,11 +11,16 @@ class WebSocket
 {
     protected Server $server;
     
+    protected const OPEN_HANDLER    = "Open";
+    protected const CLOSE_HANDLER   = "Close";
+    protected const START_HANDLER   = "Start";
+    protected const MESSAGE_HANDLER = "message";
+    
     protected const SYSTEM_HANDLERS = [
-        'Open',
-        'Close',
-        'Start',
-        'message'
+        self::OPEN_HANDLER,
+        self::CLOSE_HANDLER,
+        self::START_HANDLER,
+        self::MESSAGE_HANDLER
     ];
     
     public function __construct(array $options)
@@ -22,12 +28,12 @@ class WebSocket
         $host = $options['host'] ?? '';
         $port = $options['port'] ?? '';
         $this->server = new Server($host, $port);
+    
+        $this->init();
     }
     
     public function start()
     {
-        $this->init();
-        
         $this->server->start();
     }
     
@@ -47,10 +53,10 @@ class WebSocket
             'message',
             function (Server $ws, Frame $frame) {
                 $data = json_decode($frame->data, true, JSON_THROW_ON_ERROR);
-            
+                
                 $instance = $this->getControllerInstance($data);
                 $responseDto = $instance->apply($data['params']);
-            
+                
                 $ws->push($frame->fd, $responseDto->toJson());
             }
         );
@@ -58,12 +64,10 @@ class WebSocket
     
     protected function openHandler()
     {
-        $this->server->on('Open', function(Server $server, Request $request)
-        {
+        $this->server->on('Open', function (Server $server, Request $request) {
             echo "connection open: {$request->fd}\n";
-        
-            $server->tick(1000, function() use ($server, $request)
-            {
+            
+            $server->tick(1000, function () use ($server, $request) {
                 $server->push($request->fd, json_encode(["hello", time()]));
             });
         });
@@ -71,16 +75,14 @@ class WebSocket
     
     protected function closeHandler()
     {
-        $this->server->on('Close', function(Server $server, int $fd)
-        {
+        $this->server->on('Close', function (Server $server, int $fd) {
             echo "connection close: {$fd}\n";
         });
     }
     
     protected function startHundler(): void
     {
-        $this->server->on("Start", function(Server $server)
-        {
+        $this->server->on("Start", function (Server $server) {
             echo "Swoole WebSocket Server started at 127.0.0.1:9501\n";
         });
     }
@@ -97,7 +99,7 @@ class WebSocket
     {
         $method = $data['method'] ?? null;
         if (!$method) {
-            throw new \Exception("Must Me Method in RPC");
+            throw new RpcMethodNotFoundException("Must Me Method in RPC");
         }
         
         return $data['method'];
