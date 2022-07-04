@@ -3,6 +3,7 @@
 namespace Jtrw\Micro\Poc\Rpc\SwooleWebSocket;
 
 use Jtrw\Micro\Poc\Rpc\SwooleWebSocket\Exception\RpcMethodNotFoundException;
+use Jtrw\Micro\Poc\Rpc\SwooleWebSocket\Utils\CliUtils;
 use Swoole\WebSocket\Server;
 use Swoole\WebSocket\Frame;
 use Swoole\Http\Request;
@@ -23,11 +24,14 @@ class WebSocket
         self::MESSAGE_HANDLER
     ];
     
+    protected string $host;
+    protected int $port;
+    
     public function __construct(array $options)
     {
-        $host = $options['host'] ?? '';
-        $port = $options['port'] ?? '';
-        $this->server = new Server($host, $port);
+        $this->host = $options['host'] ?? '';
+        $this->port = $options['port'] ?? '';
+        $this->server = new Server($this->host, $this->port);
     
         $this->init();
     }
@@ -51,13 +55,13 @@ class WebSocket
     {
         $this->server->on(
             static::MESSAGE_HANDLER,
-            function (Server $ws, Frame $frame) {
+            function (Server $server, Frame $frame) {
                 $data = json_decode($frame->data, true, JSON_THROW_ON_ERROR);
                 
                 $instance = $this->getControllerInstance($data);
                 $responseDto = $instance->apply($data['params']);
-                
-                $ws->push($frame->fd, $responseDto->toJson());
+    
+                $server->push($frame->fd, $responseDto->toJson());
             }
         );
     }
@@ -65,7 +69,7 @@ class WebSocket
     protected function openHandler()
     {
         $this->server->on(static::OPEN_HANDLER, function (Server $server, Request $request) {
-            echo "connection open: {$request->fd}\n";
+            CliUtils::s("connection open: {$request->fd}");
             
             $server->tick(1000, function () use ($server, $request) {
                 $server->push($request->fd, json_encode(["hello", time()]));
@@ -76,14 +80,15 @@ class WebSocket
     protected function closeHandler()
     {
         $this->server->on(static::CLOSE_HANDLER, function (Server $server, int $fd) {
-            echo "connection close: {$fd}\n";
+            CliUtils::s("connection close: {$fd}");
         });
     }
     
     protected function startHundler(): void
     {
         $this->server->on(static::START_HANDLER, function (Server $server) {
-            echo "Swoole WebSocket Server started at 127.0.0.1:9501\n";
+            $msg = sprintf("Swoole WebSocket Server started at %s:%s", $this->host, $this->port);
+            CliUtils::s($msg);
         });
     }
     
