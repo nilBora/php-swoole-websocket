@@ -50,7 +50,7 @@ class WebSocket
     protected function messageHandler()
     {
         $this->server->on(
-            'message',
+            static::MESSAGE_HANDLER,
             function (Server $ws, Frame $frame) {
                 $data = json_decode($frame->data, true, JSON_THROW_ON_ERROR);
                 
@@ -64,7 +64,7 @@ class WebSocket
     
     protected function openHandler()
     {
-        $this->server->on('Open', function (Server $server, Request $request) {
+        $this->server->on(static::OPEN_HANDLER, function (Server $server, Request $request) {
             echo "connection open: {$request->fd}\n";
             
             $server->tick(1000, function () use ($server, $request) {
@@ -75,14 +75,14 @@ class WebSocket
     
     protected function closeHandler()
     {
-        $this->server->on('Close', function (Server $server, int $fd) {
+        $this->server->on(static::CLOSE_HANDLER, function (Server $server, int $fd) {
             echo "connection close: {$fd}\n";
         });
     }
     
     protected function startHundler(): void
     {
-        $this->server->on("Start", function (Server $server) {
+        $this->server->on(static::START_HANDLER, function (Server $server) {
             echo "Swoole WebSocket Server started at 127.0.0.1:9501\n";
         });
     }
