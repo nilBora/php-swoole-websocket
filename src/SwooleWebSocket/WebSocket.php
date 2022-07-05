@@ -96,7 +96,7 @@ class WebSocket
     {
         $method = $this->getMethod($data);
         
-        $namespace = "Jtrw\Micro\Poc\Rpc\Presentation\Socket\\".$method;
+        $namespace = "Jtrw\Micro\Poc\Rpc\Presentation\Socket\\".$method."Method";
         return new $namespace();
     }
     
