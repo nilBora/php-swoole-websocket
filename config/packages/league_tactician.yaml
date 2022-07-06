@@ -1,0 +1,19 @@
+tactician:
+    default_bus: command.create.jtrw
+    commandbus:
+        command.create.jtrw:
+            middleware:
+                #- tactician.middleware.tracer
+                #- tactician.middleware.locking
+                #- tactician.middleware.logger
+                #- tactician.middleware.event
+                - tactician.commandbus.command.create.jtrw.middleware.command_handler
+
+        command.query.jtrw:
+            middleware:
+                #        - tactician.middleware.tracer
+                #- tactician.middleware.logger
+                #- tactician.middleware.event
+                - tactician.commandbus.command.query.jtrw.middleware.command_handler
+
+

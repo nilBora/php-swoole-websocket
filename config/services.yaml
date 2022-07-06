@@ -7,10 +7,24 @@ services:
     autoconfigure: true
     public: false
 
+  _instanceof:
+    Jtrw\Micro\Poc\Rpc\Application\QueryHandler\QueryHandlerInterface:
+      public: true
+      tags:
+        - { name: tactician.handler, typehints: true, bus: command.query.jtrw }
+
   ping.json_rpc:
     class: Jtrw\Micro\Poc\Rpc\Presentation\Rpc\PingMethod
+    arguments:
+      - '@tactician.commandbus.command.query.jtrw'
+      - '@Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory'
     tags:
       - { name: 'json_rpc_http_server.jsonrpc_method', method: 'ping' }
 #Jtrw\Micro\Poc\Rpc\:
 #  resource: '../src/*'
 #  exclude: '../src/{Kernel.php}'
+
+  Jtrw\Micro\Poc\Rpc\:
+    resource: '../src/*'
+    exclude: '../src/{Kernel.php,Application/Dto/,Domain/Command,Domain/Entity,Domain/Event,Domain/Exception,Domain/Query,Domain/ValueObject,Infrastructure/Migrations,Presentation/Cli}'
+
