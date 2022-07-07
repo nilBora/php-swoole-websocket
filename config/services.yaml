@@ -20,9 +20,6 @@ services:
       - '@Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory'
     tags:
       - { name: 'json_rpc_http_server.jsonrpc_method', method: 'ping' }
-#Jtrw\Micro\Poc\Rpc\:
-#  resource: '../src/*'
-#  exclude: '../src/{Kernel.php}'
 
   Jtrw\Micro\Poc\Rpc\:
     resource: '../src/*'
