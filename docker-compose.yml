@@ -56,26 +56,26 @@ services:
     ports:
       - 9502:9502
 
-#  tasks:
-#    container_name: ${APP_COMPOSE_PROJECT_NAME}_tasks
-#    image: brdnlsrg/baseimage:php8.0-full-dev
-#    env_file:
-#      - .env
-#    user: 1000:1000
-#    volumes:
-#      - .:/app:rw
-#    working_dir: /app
-#    restart: on-failure
-#    command: '/app/bin/console enqueue:consume -c task'
+  tasks:
+    container_name: ${APP_COMPOSE_PROJECT_NAME}_tasks
+    image: brdnlsrg/baseimage:php8.0-full-dev
+    env_file:
+      - .env
+    user: 1000:1000
+    volumes:
+      - .:/app:rw
+    working_dir: /app
+    restart: on-failure
+    command: '/app/bin/console enqueue:consume -c task'
 
-#  queue-events:
-#    container_name: ${APP_COMPOSE_PROJECT_NAME}_queue_events
-#    image: brdnlsrg/baseimage:php8.0-full-dev
-#    env_file:
-#      - .env
-#    user: 1000:1000
-#    volumes:
-#      - .:/app:rw
-#    working_dir: /app
-#    restart: on-failure
-#    command: '/app/bin/console enqueue:consume -c queueevent'
+  queue-events:
+    container_name: ${APP_COMPOSE_PROJECT_NAME}_queue_events
+    image: brdnlsrg/baseimage:php8.0-full-dev
+    env_file:
+      - .env
+    user: 1000:1000
+    volumes:
+      - .:/app:rw
+    working_dir: /app
+    restart: on-failure
+    command: '/app/bin/console enqueue:consume -c queueevent'

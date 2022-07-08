@@ -8,6 +8,8 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-swoole": "*",
+        "enqueue/enqueue-bundle": "^0.10.16",
+        "enqueue/fs": "^0.10.16",
         "k911/swoole-bundle": "^0.8.3",
         "league/tactician-bundle": "^1.4",
         "league/tactician-command-events": "^0.6.0",
