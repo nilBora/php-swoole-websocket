@@ -1,4 +1,77 @@
 enqueue:
-    default:
-        transport: '%env(resolve:ENQUEUE_DSN)%'
-        client: null
+    task:
+        transport:
+            dsn: "rdkafka://"
+            global:
+                group.id: 'user-rpc'
+                metadata.broker.list: '%enqueue.kafka.host%:%enqueue.kafka.port%'
+            topic:
+                auto.offset.reset: beginning
+            commit_async: true
+        client:
+            prefix: '%enqueue.client.prefix%'
+            app_name: ''
+            default_queue: '%enqueue.task.client.app%'
+            router_topic: '%enqueue.task.client.app%'
+            router_queue: '%enqueue.task.client.app%'
+        job: true
+
+    queueevent:
+        transport:
+            dsn: "rdkafka://"
+            global:
+                group.id: 'user-rpc'
+                metadata.broker.list: '%enqueue.kafka.host%:%enqueue.kafka.port%'
+            topic:
+                auto.offset.reset: beginning
+            commit_async: true
+        client:
+            prefix: '%enqueue.client.prefix%'
+            app_name: ''
+            default_queue: '%enqueue.queueevent.client.app%'
+            router_topic: '%enqueue.queueevent.client.app%'
+            router_queue: '%enqueue.queueevent.client.app%'
+
+    taskevent:
+        transport:
+            dsn: "rdkafka://"
+            global:
+                group.id: 'user-rpc'
+                metadata.broker.list: '%enqueue.kafka.host%:%enqueue.kafka.port%'
+            topic:
+                auto.offset.reset: beginning
+            commit_async: true
+        client:
+            prefix: '%enqueue.client.prefix%'
+            app_name: ''
+            default_queue: '%enqueue.taskevent.client.app%'
+            router_topic: '%enqueue.taskevent.client.app%'
+            router_queue: '%enqueue.taskevent.client.app%'
+
+#    task:
+#        transport: 'amqp://%enqueue.amqp.user%:%enqueue.amqp.pass%@%enqueue.amqp.host%:%enqueue.amqp.port%/%enqueue.amqp.vhost%'
+#        client:
+#            prefix: '%enqueue.client.prefix%'
+#            app_name: ''
+#            default_queue: '%enqueue.task.client.app%'
+#            router_topic: '%enqueue.task.client.app%'
+#            router_queue: '%enqueue.task.client.app%'
+#        job: true
+#
+#    queueevent:
+#        transport: 'amqp://%enqueue.amqp.user%:%enqueue.amqp.pass%@%enqueue.amqp.host%:%enqueue.amqp.port%/%enqueue.amqp.vhost%'
+#        client:
+#            prefix: '%enqueue.client.prefix%'
+#            app_name: ''
+#            default_queue: '%enqueue.queueevent.client.app%'
+#            router_topic: '%enqueue.queueevent.client.app%'
+#            router_queue: '%enqueue.queueevent.client.app%'
+#
+#    taskevent:
+#        transport: 'amqp://%enqueue.amqp.user%:%enqueue.amqp.pass%@%enqueue.amqp.host%:%enqueue.amqp.port%/%enqueue.amqp.vhost%'
+#        client:
+#            prefix: '%enqueue.client.prefix%'
+#            app_name: ''
+#            default_queue: '%enqueue.taskevent.client.app%'
+#            router_topic: '%enqueue.taskevent.client.app%'
+#            router_queue: '%enqueue.taskevent.client.app%'
