@@ -6,3 +6,13 @@ parameters:
 
   swoole.trusted_proxies: '%env(APP_TRUSTED_PROXIES)%'
   swoole.trusted_hosts: '%env(APP_TRUSTED_HOSTS)%'
+
+  enqueue.kafka.host: '%env(APP_KAFKA_HOST)%'
+  enqueue.kafka.port: '%env(APP_KAFKA_PORT)%'
+  enqueue.client.prefix: '%app.service_name%'
+  enqueue.client.app: 'user'
+
+  enqueue.task.client.app: 'task'
+  enqueue.event.client.app: 'event'
+  enqueue.taskevent.client.app: 'task.event'
+  enqueue.queueevent.client.app: 'queue.event'

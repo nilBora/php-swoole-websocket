@@ -29,7 +29,9 @@ services:
 
   php-fpm:
     container_name: ${APP_COMPOSE_PROJECT_NAME}_php_fpm
-    image: brdnlsrg/baseimage:php8.0-full-dev
+    build:
+      context: .
+    #image: brdnlsrg/baseimage:php8.0-full-dev
     env_file:
       - .env
     user: 1000:1000
@@ -59,8 +61,6 @@ services:
   zookeeper:
     container_name: zookeeper
     image: bitnami/zookeeper:latest
-    networks:
-      - micro-backend
     ports:
       - "2181:2181"
     environment:
@@ -69,8 +69,6 @@ services:
   kafka:
     container_name: kafka
     image: bitnami/kafka:latest
-    networks:
-      - micro-backend
     ports:
       - "9093:9093"
     environment:
@@ -87,7 +85,9 @@ services:
 
 #  tasks:
 #    container_name: ${APP_COMPOSE_PROJECT_NAME}_tasks
-#    image: brdnlsrg/baseimage:php8.0-full-dev
+#    build:
+#      context: .
+#    #image: brdnlsrg/baseimage:php8.0-full-dev
 #    env_file:
 #      - .env
 #    user: 1000:1000
@@ -99,7 +99,9 @@ services:
 
   queue-events:
     container_name: ${APP_COMPOSE_PROJECT_NAME}_queue_events
-    image: brdnlsrg/baseimage:php8.0-full-dev
+    build:
+      context: .
+    #image: brdnlsrg/baseimage:php8.0-full-dev
     env_file:
       - .env
     user: 1000:1000
@@ -108,3 +110,24 @@ services:
     working_dir: /app
     restart: on-failure
     command: '/app/bin/console enqueue:consume -c queueevent'
+
+###> doctrine/doctrine-bundle ###
+  database:
+    image: postgres:${POSTGRES_VERSION:-13}-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-app}
+      # You should definitely change the password in production
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ChangeMe}
+      POSTGRES_USER: ${POSTGRES_USER:-symfony}
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+###< doctrine/doctrine-bundle ###
+
+volumes:
+  kafka_data:
+
+###> doctrine/doctrine-bundle ###
+  db-data:
+###< doctrine/doctrine-bundle ###

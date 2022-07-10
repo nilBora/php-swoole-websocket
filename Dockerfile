@@ -17,6 +17,17 @@ RUN export SWOOLE_VERSION=4.5.9 && cd /tmp && \
     echo "swoole.fast_serialize=On" >> /usr/local/etc/php/conf.d/docker-php-ext-swoole-serialize.ini && \
     rm -rf /tmp/*
 
+
+#install kafka
+RUN apk add --no-cache librdkafka-dev
+RUN git clone https://github.com/arnaud-lb/php-rdkafka.git && \
+    cd php-rdkafka && \
+    phpize && \
+    ./configure && \
+    make all -j 5 && \
+    make install && \
+    docker-php-ext-enable rdkafka
+
 WORKDIR /app
 #ENTRYPOINT ["/app/server"]
 
