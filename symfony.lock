@@ -1,4 +1,16 @@
 {
+    "broadway/broadway-bundle": {
+        "version": "0.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.4",
+            "ref": "0601c67ff07896a752e5a72381a22254ff754ea1"
+        },
+        "files": [
+            "config/packages/broadway.yaml"
+        ]
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {

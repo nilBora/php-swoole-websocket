@@ -7,4 +7,5 @@ return [
     League\Tactician\Bundle\TacticianBundle::class => ['all' => true],
     Enqueue\Bundle\EnqueueBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
+    Broadway\Bundle\BroadwayBundle\BroadwayBundle::class => ['all' => true],
 ];

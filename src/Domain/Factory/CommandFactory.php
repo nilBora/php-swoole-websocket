@@ -6,6 +6,7 @@ use Jtrw\Micro\Poc\Rpc\Domain\Query\PingCommand;
 use MicroModule\Base\Domain\Command\CommandInterface;
 use MicroModule\Base\Domain\Exception\FactoryException;
 use MicroModule\Base\Domain\Factory\CommandFactoryInterface;
+use MicroModule\ValueObject\Identity\UUID as ProcessUuid;
 
 class CommandFactory implements CommandFactoryInterface
 {
