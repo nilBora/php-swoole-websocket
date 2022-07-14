@@ -3,6 +3,7 @@
 namespace Jtrw\Micro\Poc\Rpc\Domain\Factory;
 
 use Jtrw\Micro\Poc\Rpc\Domain\Query\PingCommand;
+use Jtrw\Micro\Poc\Rpc\Domain\ValueObject\Item;
 use MicroModule\Base\Domain\Command\CommandInterface;
 use MicroModule\Base\Domain\Exception\FactoryException;
 use MicroModule\Base\Domain\Factory\CommandFactoryInterface;
@@ -32,8 +33,8 @@ class CommandFactory implements CommandFactoryInterface
     
     public function makeUserRegisterTaskCommand(UserDtoInterface $userDto): UserRegisterTaskCommand
     {
-        $uuid = Uuid::fromNative(null);
-        $user = User::fromNative($userDto->normalize());
+        $uuid = ProcessUuid::fromNative(null);
+        $user = Item::fromNative($userDto->normalize());
         
         return new UserRegisterTaskCommand($uuid, $user);
     }
