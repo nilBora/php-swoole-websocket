@@ -2,6 +2,7 @@
 
 namespace Jtrw\Micro\Poc\Rpc\Domain\Factory;
 
+use Jtrw\Micro\Poc\Rpc\Domain\Command\ItemCreateTaskCommand;
 use Jtrw\Micro\Poc\Rpc\Domain\Query\PingCommand;
 use Jtrw\Micro\Poc\Rpc\Domain\ValueObject\Item;
 use MicroModule\Base\Domain\Command\CommandInterface;
@@ -31,11 +32,11 @@ class CommandFactory implements CommandFactoryInterface
         return new PingCommand();
     }
     
-    public function makeUserRegisterTaskCommand(UserDtoInterface $userDto): UserRegisterTaskCommand
+    public function makeUserRegisterTaskCommand(UserDtoInterface $userDto): CommandInterface
     {
         $uuid = ProcessUuid::fromNative(null);
-        $user = Item::fromNative($userDto->normalize());
+        $item = Item::fromNative($userDto->normalize());
         
-        return new UserRegisterTaskCommand($uuid, $user);
+        return new ItemCreateTaskCommand($uuid, $item);
     }
 }
