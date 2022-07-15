@@ -2,6 +2,7 @@
 
 namespace Jtrw\Micro\Poc\Rpc\Presentation\Rpc;
 
+use Jtrw\Micro\Poc\Rpc\Applicaation\Dto\ItemDto;
 use Jtrw\Micro\Poc\Rpc\Applicaation\Dto\UserDto;
 use Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory;
 use League\Tactician\CommandBus;
@@ -33,7 +34,7 @@ class RegisterMethod implements JsonRpcMethodInterface
         if (null === $paramList) {
             return null;
         }
-        $userDto = UserDto::denormalize($paramList);
-        return $this->commandBus->handle($this->commandFactory->makeRegisterTaskCommand($userDto));
+        $itemDto = ItemDto::denormalize($paramList);
+        return $this->commandBus->handle($this->commandFactory->makeItemRegisterTaskCommand($itemDto));
     }
 }

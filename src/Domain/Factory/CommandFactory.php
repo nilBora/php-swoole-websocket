@@ -32,7 +32,7 @@ class CommandFactory implements CommandFactoryInterface
         return new PingCommand();
     }
     
-    public function makeUserRegisterTaskCommand(UserDtoInterface $userDto): CommandInterface
+    public function makeItemRegisterTaskCommand(UserDtoInterface $userDto): CommandInterface
     {
         $uuid = ProcessUuid::fromNative(null);
         $item = Item::fromNative($userDto->normalize());
