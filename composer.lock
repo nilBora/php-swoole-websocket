@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5be775187d41f35ceac0d69ddc4b30d6",
+    "content-hash": "04352ce1af5a31b4c672611e0eddb11d",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2379,16 +2379,16 @@
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
-                "reference": "7f049390b756d34ba5940a8fb47634fbb51f79ab"
+                "reference": "d74d2da21beae5aceff1e8c07b901066b0e1b719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/7f049390b756d34ba5940a8fb47634fbb51f79ab",
-                "reference": "7f049390b756d34ba5940a8fb47634fbb51f79ab",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/d74d2da21beae5aceff1e8c07b901066b0e1b719",
+                "reference": "d74d2da21beae5aceff1e8c07b901066b0e1b719",
                 "shasum": ""
             },
             "require": {
@@ -2437,7 +2437,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-02-22T22:17:01+00:00"
+            "time": "2022-07-14T16:30:30+00:00"
         },
         {
             "name": "league/event",
@@ -2918,38 +2918,39 @@
         },
         {
             "name": "micro-module/base",
-            "version": "v0.5.0",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/temafey/micro_modules_base.git",
-                "reference": "32e50e220b88aa4d1e9932812f53307b279c6a87"
+                "reference": "2a8ba29fe51010ab42af4366554c826d4d4b1026"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/temafey/micro_modules_base/zipball/32e50e220b88aa4d1e9932812f53307b279c6a87",
-                "reference": "32e50e220b88aa4d1e9932812f53307b279c6a87",
+                "url": "https://api.github.com/repos/temafey/micro_modules_base/zipball/2a8ba29fe51010ab42af4366554c826d4d4b1026",
+                "reference": "2a8ba29fe51010ab42af4366554c826d4d4b1026",
                 "shasum": ""
             },
             "require": {
-                "beberlei/assert": "^3.2",
+                "beberlei/assert": "^3.3",
+                "ext-intl": "*",
                 "ext-json": "*",
                 "monolog/monolog": "~1.22 || ~2.0",
-                "php": "^7.3 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "psr/log": "^1.1",
                 "ramsey/uuid": "^3.8 || ^4.0"
             },
             "require-dev": {
-                "mockery/mockery": "^1.3",
-                "php-parallel-lint/php-console-highlighter": "^0.4",
-                "php-parallel-lint/php-parallel-lint": "^1.0",
-                "phpmd/phpmd": "^2.8",
+                "mockery/mockery": "^1.4",
+                "php-parallel-lint/php-console-highlighter": "^0.5",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpmd/phpmd": "^2.9",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-mockery": "^0.12",
                 "phpstan/phpstan-phpunit": "^0.12",
-                "phpunit/phpunit": "^9.4",
+                "phpunit/phpunit": "^9.3",
                 "roave/security-advisories": "dev-master",
-                "symplify/easy-coding-standard": "^7.2",
-                "vimeo/psalm": "^4.2"
+                "symplify/easy-coding-standard": "^9.0",
+                "vimeo/psalm": "^4.4"
             },
             "type": "library",
             "autoload": {
@@ -2964,9 +2965,70 @@
             "description": "Micro module Base common library",
             "support": {
                 "issues": "https://github.com/temafey/micro_modules_base/issues",
-                "source": "https://github.com/temafey/micro_modules_base/tree/v0.5.0"
+                "source": "https://github.com/temafey/micro_modules_base/tree/v0.7.0"
             },
-            "time": "2020-12-02T15:07:41+00:00"
+            "time": "2021-02-19T15:33:46+00:00"
+        },
+        {
+            "name": "micro-module/broadway",
+            "version": "v2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/temafey/broadway.git",
+                "reference": "79cb5c96db45e3b3829578c845334dec2830858f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/temafey/broadway/zipball/79cb5c96db45e3b3829578c845334dec2830858f",
+                "reference": "79cb5c96db45e3b3829578c845334dec2830858f",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^3.3",
+                "broadway/uuid-generator": "^1.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "broadway/coding-standard": "^1.2",
+                "monolog/monolog": "~2.0",
+                "phpstan/phpstan": "^0.12.98",
+                "phpunit/phpunit": "^9.5",
+                "ramsey/uuid": "^4.2",
+                "roave/security-advisories": "dev-latest"
+            },
+            "suggest": {
+                "broadway/read-model-elasticsearch": "Elasticsearch read model implementation",
+                "micro-module/broadway-bundle": "Symfony bundle for broadway/broadway",
+                "micro-module/broadway-saga": "Saga component for Broadway",
+                "micro-module/event-store-dbal": "Event store implementation using doctrine/dbal",
+                "psr/log-implementation": "Implementation for PSR3, LoggerInterface"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Broadway\\": "src/Broadway/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Infrastructure and testing helpers for creating CQRS and event sourced applications.",
+            "keywords": [
+                "cqrs",
+                "ddd",
+                "domain-driven design",
+                "event sourcing"
+            ],
+            "support": {
+                "source": "https://github.com/temafey/broadway/tree/v2.6.1"
+            },
+            "time": "2021-09-21T07:39:45+00:00"
         },
         {
             "name": "micro-module/geotools",
@@ -3198,6 +3260,231 @@
                 "source": "https://github.com/laminas/laminas-validator"
             },
             "time": "2021-02-01T14:12:50+00:00"
+        },
+        {
+            "name": "micro-module/snapshotting",
+            "version": "v0.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/temafey/micro_modules_snapshotting.git",
+                "reference": "f4c0ff26aa0271d2ab8b6a7a19d88d55de8fce32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/temafey/micro_modules_snapshotting/zipball/f4c0ff26aa0271d2ab8b6a7a19d88d55de8fce32",
+                "reference": "f4c0ff26aa0271d2ab8b6a7a19d88d55de8fce32",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.9 | ^3.3",
+                "ext-json": "*",
+                "micro-module/base": "^0.7.0",
+                "micro-module/broadway": "^2.6",
+                "micro-module/value-object": "^0.6.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "php-parallel-lint/php-console-highlighter": "^0.5.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3",
+                "phpmd/phpmd": "^2.10",
+                "phpstan/phpstan": "^0.12.96",
+                "phpstan/phpstan-mockery": "^0.12.14",
+                "phpstan/phpstan-phpunit": "^0.12.22",
+                "phpunit/phpunit": "^9.5",
+                "roave/security-advisories": "dev-master",
+                "symplify/easy-coding-standard": "^9.4",
+                "vimeo/psalm": "^4.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MicroModule\\Snapshotting\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "POC for snapshotting aggregates in broadway/broadway",
+            "support": {
+                "issues": "https://github.com/temafey/micro_modules_snapshotting/issues",
+                "source": "https://github.com/temafey/micro_modules_snapshotting/tree/v0.7.4"
+            },
+            "time": "2022-05-17T06:45:19+00:00"
+        },
+        {
+            "name": "micro-module/tactician-command-events",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/temafey/tactician-command-events.git",
+                "reference": "4df310062dd05a7458e475b7afa9cff49fe54735"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/temafey/tactician-command-events/zipball/4df310062dd05a7458e475b7afa9cff49fe54735",
+                "reference": "4df310062dd05a7458e475b7afa9cff49fe54735",
+                "shasum": ""
+            },
+            "require": {
+                "league/event": "^2.2",
+                "league/tactician": "^1.0"
+            },
+            "require-dev": {
+                "friends-of-phpspec/phpspec-code-coverage": "^6.1",
+                "mockery/mockery": "^1.3",
+                "php-parallel-lint/php-console-highlighter": "^0.4",
+                "php-parallel-lint/php-parallel-lint": "^1.0",
+                "phpmd/phpmd": "^2.10",
+                "phpspec/phpspec": "^7.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-mockery": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "symplify/easy-coding-standard": "^9.3",
+                "vimeo/psalm": "^4.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\CommandEvents\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Tactician Command Events",
+            "homepage": "http://tactician.thephpleague.com",
+            "keywords": [
+                "event",
+                "tactician"
+            ],
+            "support": {
+                "source": "https://github.com/temafey/tactician-command-events/tree/v0.8.0"
+            },
+            "time": "2021-05-12T11:59:42+00:00"
+        },
+        {
+            "name": "micro-module/task",
+            "version": "v0.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/temafey/micro_modules_task.git",
+                "reference": "33c81029dd9438eb3a7c64e229ac0a7d12d787b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/temafey/micro_modules_task/zipball/33c81029dd9438eb3a7c64e229ac0a7d12d787b1",
+                "reference": "33c81029dd9438eb3a7c64e229ac0a7d12d787b1",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^3.2",
+                "broadway/broadway": "^2.2",
+                "enqueue/enqueue": "^0.10",
+                "enqueue/fs": "^0.10",
+                "enqueue/null": "^0.10",
+                "league/tactician-bundle": "^1.1",
+                "micro-module/base": "~0.7",
+                "micro-module/job-queue": "~0.10",
+                "micro-module/tactician-command-events": "~0.7",
+                "php": "^7.3 || ^8.0",
+                "psr/log": "^1.1",
+                "queue-interop/amqp-interop": "^0.8",
+                "queue-interop/queue-interop": "^0.7|^0.8"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3",
+                "php-parallel-lint/php-console-highlighter": "^0.4",
+                "php-parallel-lint/php-parallel-lint": "^1.0",
+                "phpmd/phpmd": "^2.8",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-mockery": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpunit/phpunit": "^9.0",
+                "roave/security-advisories": "dev-master",
+                "sensiolabs-de/deptrac-shim": "^0.4",
+                "symplify/easy-coding-standard": "^7.2",
+                "vimeo/psalm": "^3.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MicroModule\\Task\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Micro module Task common library",
+            "support": {
+                "issues": "https://github.com/temafey/micro_modules_task/issues",
+                "source": "https://github.com/temafey/micro_modules_task/tree/v0.5.5"
+            },
+            "time": "2021-05-12T12:44:25+00:00"
+        },
+        {
+            "name": "micro-module/task-bundle",
+            "version": "v0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/temafey/micro_modules_task_bundle.git",
+                "reference": "93796039b8a31dc2036840086f1f1b3d4c346cfa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/temafey/micro_modules_task_bundle/zipball/93796039b8a31dc2036840086f1f1b3d4c346cfa",
+                "reference": "93796039b8a31dc2036840086f1f1b3d4c346cfa",
+                "shasum": ""
+            },
+            "require": {
+                "micro-module/task": "^0.5",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3",
+                "php-parallel-lint/php-console-highlighter": "^0.4",
+                "php-parallel-lint/php-parallel-lint": "^1.0",
+                "phpmd/phpmd": "^2.8",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-mockery": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpunit/phpunit": "^9.0",
+                "roave/security-advisories": "dev-master",
+                "sensiolabs-de/deptrac-shim": "^0.4",
+                "symfony/phpunit-bridge": "*",
+                "symplify/easy-coding-standard": "^7.2",
+                "vimeo/psalm": "^3.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MicroModule\\TaskBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Micro module TaskBundle common library",
+            "support": {
+                "issues": "https://github.com/temafey/micro_modules_task_bundle/issues",
+                "source": "https://github.com/temafey/micro_modules_task_bundle/tree/v0.5.1"
+            },
+            "time": "2020-12-02T16:32:18+00:00"
         },
         {
             "name": "micro-module/value-object",
@@ -4149,16 +4436,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "a50b7249bea81ddd6d3b799ce40c5521c2f72f0b"
+                "reference": "c4e387b739022fd4b20abd8edb2143c44c5daa14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/a50b7249bea81ddd6d3b799ce40c5521c2f72f0b",
-                "reference": "a50b7249bea81ddd6d3b799ce40c5521c2f72f0b",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/c4e387b739022fd4b20abd8edb2143c44c5daa14",
+                "reference": "c4e387b739022fd4b20abd8edb2143c44c5daa14",
                 "shasum": ""
             },
             "require": {
@@ -4226,7 +4513,7 @@
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v5.4.9"
+                "source": "https://github.com/symfony/cache/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -4242,11 +4529,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-21T10:24:18+00:00"
+            "time": "2022-06-19T12:03:50+00:00"
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
@@ -4305,7 +4592,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache-contracts/tree/v2.5.1"
+                "source": "https://github.com/symfony/cache-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -4503,16 +4790,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "beecae161577305926ec078c4ed973f2b98880b3"
+                "reference": "88d1c0d38c2e60f757fa11d89cfc885f0b7f5171"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/beecae161577305926ec078c4ed973f2b98880b3",
-                "reference": "beecae161577305926ec078c4ed973f2b98880b3",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/88d1c0d38c2e60f757fa11d89cfc885f0b7f5171",
+                "reference": "88d1c0d38c2e60f757fa11d89cfc885f0b7f5171",
                 "shasum": ""
             },
             "require": {
@@ -4572,7 +4859,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.9"
+                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -4588,7 +4875,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-27T06:40:03+00:00"
+            "time": "2022-06-26T13:00:04+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -5003,7 +5290,7 @@
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
@@ -5062,7 +5349,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v2.5.1"
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -5274,16 +5561,16 @@
         },
         {
             "name": "symfony/framework-bundle",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/framework-bundle.git",
-                "reference": "1cb89cd3e36d5060545d0f223f00a774fa6430ef"
+                "reference": "7cbc790e067a23a47b9f0dc59e2ff0ecddbd3e14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/1cb89cd3e36d5060545d0f223f00a774fa6430ef",
-                "reference": "1cb89cd3e36d5060545d0f223f00a774fa6430ef",
+                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/7cbc790e067a23a47b9f0dc59e2ff0ecddbd3e14",
+                "reference": "7cbc790e067a23a47b9f0dc59e2ff0ecddbd3e14",
                 "shasum": ""
             },
             "require": {
@@ -5405,7 +5692,7 @@
             "description": "Provides a tight integration between Symfony components and the Symfony full-stack framework",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/framework-bundle/tree/v5.4.9"
+                "source": "https://github.com/symfony/framework-bundle/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -5421,20 +5708,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-27T06:29:07+00:00"
+            "time": "2022-06-19T13:15:57+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "6b0d0e4aca38d57605dcd11e2416994b38774522"
+                "reference": "e7793b7906f72a8cc51054fbca9dcff7a8af1c1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/6b0d0e4aca38d57605dcd11e2416994b38774522",
-                "reference": "6b0d0e4aca38d57605dcd11e2416994b38774522",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e7793b7906f72a8cc51054fbca9dcff7a8af1c1e",
+                "reference": "e7793b7906f72a8cc51054fbca9dcff7a8af1c1e",
                 "shasum": ""
             },
             "require": {
@@ -5478,7 +5765,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v5.4.9"
+                "source": "https://github.com/symfony/http-foundation/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -5494,20 +5781,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-17T15:07:29+00:00"
+            "time": "2022-06-19T13:13:40+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "34b121ad3dc761f35fe1346d2f15618f8cbf77f8"
+                "reference": "255ae3b0a488d78fbb34da23d3e0c059874b5948"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/34b121ad3dc761f35fe1346d2f15618f8cbf77f8",
-                "reference": "34b121ad3dc761f35fe1346d2f15618f8cbf77f8",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/255ae3b0a488d78fbb34da23d3e0c059874b5948",
+                "reference": "255ae3b0a488d78fbb34da23d3e0c059874b5948",
                 "shasum": ""
             },
             "require": {
@@ -5590,7 +5877,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v5.4.9"
+                "source": "https://github.com/symfony/http-kernel/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -5606,7 +5893,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-27T07:09:08+00:00"
+            "time": "2022-06-26T16:57:59+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
@@ -6772,16 +7059,16 @@
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "1211df0afa701e45a04253110e959d4af4ef0f07"
+                "reference": "136b19dd05cdf0709db6537d058bcab6dd6e2dbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/1211df0afa701e45a04253110e959d4af4ef0f07",
-                "reference": "1211df0afa701e45a04253110e959d4af4ef0f07",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/136b19dd05cdf0709db6537d058bcab6dd6e2dbe",
+                "reference": "136b19dd05cdf0709db6537d058bcab6dd6e2dbe",
                 "shasum": ""
             },
             "require": {
@@ -6830,7 +7117,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v2.5.1"
+                "source": "https://github.com/symfony/translation-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -6846,20 +7133,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:53:40+00:00"
+            "time": "2022-06-27T16:58:25+00:00"
         },
         {
             "name": "symfony/validator",
-            "version": "v5.4.8",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "bdc6d04ba95c73ccbf906b4ad9b8775c738d83ad"
+                "reference": "303490582fee6ed46fa3bd9701ef0ff741ada648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/bdc6d04ba95c73ccbf906b4ad9b8775c738d83ad",
-                "reference": "bdc6d04ba95c73ccbf906b4ad9b8775c738d83ad",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/303490582fee6ed46fa3bd9701ef0ff741ada648",
+                "reference": "303490582fee6ed46fa3bd9701ef0ff741ada648",
                 "shasum": ""
             },
             "require": {
@@ -6943,7 +7230,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v5.4.8"
+                "source": "https://github.com/symfony/validator/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -6959,7 +7246,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-15T08:07:45+00:00"
+            "time": "2022-06-09T12:24:18+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -7052,16 +7339,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "63249ebfca4e75a357679fa7ba2089cfb898aa67"
+                "reference": "8fc03ee75eeece3d9be1ef47d26d79bea1afb340"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/63249ebfca4e75a357679fa7ba2089cfb898aa67",
-                "reference": "63249ebfca4e75a357679fa7ba2089cfb898aa67",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/8fc03ee75eeece3d9be1ef47d26d79bea1afb340",
+                "reference": "8fc03ee75eeece3d9be1ef47d26d79bea1afb340",
                 "shasum": ""
             },
             "require": {
@@ -7105,7 +7392,7 @@
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v5.4.9"
+                "source": "https://github.com/symfony/var-exporter/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -7121,20 +7408,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-21T10:24:18+00:00"
+            "time": "2022-05-27T12:56:18+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.3",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "e80f87d2c9495966768310fc531b487ce64237a2"
+                "reference": "04e42926429d9e8b39c174387ab990bf7817f7a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e80f87d2c9495966768310fc531b487ce64237a2",
-                "reference": "e80f87d2c9495966768310fc531b487ce64237a2",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/04e42926429d9e8b39c174387ab990bf7817f7a2",
+                "reference": "04e42926429d9e8b39c174387ab990bf7817f7a2",
                 "shasum": ""
             },
             "require": {
@@ -7180,7 +7467,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.3"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -7196,7 +7483,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-26T16:32:32+00:00"
+            "time": "2022-06-20T11:50:59+00:00"
         },
         {
             "name": "willdurand/geocoder",
@@ -7537,16 +7824,16 @@
         },
         {
             "name": "yoanm/symfony-jsonrpc-http-server",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yoanm/symfony-jsonrpc-http-server.git",
-                "reference": "a5fe1f310bbf5827c43a5ca2260d0a9274eee3aa"
+                "reference": "76b1eb14a86ca0aa8e473f314b121480e74a505d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yoanm/symfony-jsonrpc-http-server/zipball/a5fe1f310bbf5827c43a5ca2260d0a9274eee3aa",
-                "reference": "a5fe1f310bbf5827c43a5ca2260d0a9274eee3aa",
+                "url": "https://api.github.com/repos/yoanm/symfony-jsonrpc-http-server/zipball/76b1eb14a86ca0aa8e473f314b121480e74a505d",
+                "reference": "76b1eb14a86ca0aa8e473f314b121480e74a505d",
                 "shasum": ""
             },
             "require": {
@@ -7596,9 +7883,9 @@
             "description": "Symfony Bundle to convert an HTTP json-rpc request into HTTP json-rpc response",
             "support": {
                 "issues": "https://github.com/yoanm/symfony-jsonrpc-http-server/issues",
-                "source": "https://github.com/yoanm/symfony-jsonrpc-http-server/tree/v3.1.0"
+                "source": "https://github.com/yoanm/symfony-jsonrpc-http-server/tree/v3.1.1"
             },
-            "time": "2022-06-19T21:38:43+00:00"
+            "time": "2022-06-25T06:43:48+00:00"
         },
         {
             "name": "yoanm/symfony-jsonrpc-http-server-doc",

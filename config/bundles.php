@@ -8,4 +8,5 @@ return [
     Enqueue\Bundle\EnqueueBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
     Broadway\Bundle\BroadwayBundle\BroadwayBundle::class => ['all' => true],
+    MicroModule\TaskBundle\TaskBundle::class => ['all' => true],
 ];
