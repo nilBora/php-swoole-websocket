@@ -2,6 +2,7 @@
 
 namespace Jtrw\Micro\Poc\Rpc\Domain\Factory;
 
+use Jtrw\Micro\Poc\Rpc\Applicaation\Dto\ItemDto;
 use Jtrw\Micro\Poc\Rpc\Domain\Command\ItemCreateTaskCommand;
 use Jtrw\Micro\Poc\Rpc\Domain\Query\PingCommand;
 use Jtrw\Micro\Poc\Rpc\Domain\ValueObject\Item;
@@ -12,7 +13,8 @@ use MicroModule\ValueObject\Identity\UUID as ProcessUuid;
 
 class CommandFactory implements CommandFactoryInterface
 {
-    public const PING_COMMAND = 'PingCommand';
+    public const PING_COMMAND               = 'PingCommand';
+    public const ITEM_REGISTER_TASK_COMMAND = 'ItemRegisterTaskCommand';
     
     public function makeCommandInstanceByType(...$args): CommandInterface
     {
@@ -21,6 +23,8 @@ class CommandFactory implements CommandFactoryInterface
         switch ($commandType) {
             case self::PING_COMMAND:
                 return $this->makePingCommand(...$args);
+            case self::ITEM_REGISTER_TASK_COMMAND:
+                return $this->makeItemRegisterTaskCommand(...$args);
         
             default:
                 throw new FactoryException(sprintf('Command bus for type `%s` not found!', (string) $commandType));
@@ -32,7 +36,7 @@ class CommandFactory implements CommandFactoryInterface
         return new PingCommand();
     }
     
-    public function makeItemRegisterTaskCommand(UserDtoInterface $userDto): CommandInterface
+    public function makeItemRegisterTaskCommand(ItemDto $userDto): CommandInterface
     {
         $uuid = ProcessUuid::fromNative(null);
         $item = Item::fromNative($userDto->normalize());
