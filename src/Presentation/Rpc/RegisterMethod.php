@@ -3,10 +3,8 @@
 namespace Jtrw\Micro\Poc\Rpc\Presentation\Rpc;
 
 use Jtrw\Micro\Poc\Rpc\Applicaation\Dto\ItemDto;
-use Jtrw\Micro\Poc\Rpc\Applicaation\Dto\UserDto;
 use Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory;
 use League\Tactician\CommandBus;
-use Yoanm\JsonRpcServer\Domain\Exception\JsonRpcException;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
 
 class RegisterMethod implements JsonRpcMethodInterface
