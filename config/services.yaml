@@ -21,6 +21,14 @@ services:
     tags:
       - { name: 'json_rpc_http_server.jsonrpc_method', method: 'ping' }
 
+  register.json_rpc:
+    class: Jtrw\Micro\Poc\Rpc\Presentation\Rpc\RegisterMethod
+    arguments:
+      - '@tactician.commandbus.command.query.jtrw'
+      - '@Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory'
+    tags:
+      - { name: 'json_rpc_http_server.jsonrpc_method', method: 'register' }
+
   Jtrw\Micro\Poc\Rpc\:
     resource: '../src/*'
     exclude: '../src/{Kernel.php,Application/Dto/,Domain/Command,Domain/Entity,Domain/Event,Domain/Exception,Domain/Query,Domain/ValueObject,Infrastructure/Migrations,Presentation/Cli}'
