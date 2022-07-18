@@ -2,7 +2,7 @@
 
 namespace Jtrw\Micro\Poc\Rpc\Presentation\Rpc;
 
-use Jtrw\Micro\Poc\Rpc\Applicaation\Dto\ItemDto;
+use Jtrw\Micro\Poc\Rpc\Application\Dto\ItemDto;
 use Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory;
 use League\Tactician\CommandBus;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;

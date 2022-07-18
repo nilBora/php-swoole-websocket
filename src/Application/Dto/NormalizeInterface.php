@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jtrw\Micro\Poc\Rpc\Applicaation\Dto;
+namespace Jtrw\Micro\Poc\Rpc\Application\Dto;
 
 /**
  * Interface NormalizeInterface.

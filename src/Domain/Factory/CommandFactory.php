@@ -2,7 +2,7 @@
 
 namespace Jtrw\Micro\Poc\Rpc\Domain\Factory;
 
-use Jtrw\Micro\Poc\Rpc\Applicaation\Dto\ItemDto;
+use Jtrw\Micro\Poc\Rpc\Application\Dto\ItemDto;
 use Jtrw\Micro\Poc\Rpc\Domain\Command\ItemCreateTaskCommand;
 use Jtrw\Micro\Poc\Rpc\Domain\Query\PingCommand;
 use Jtrw\Micro\Poc\Rpc\Domain\ValueObject\Item;
