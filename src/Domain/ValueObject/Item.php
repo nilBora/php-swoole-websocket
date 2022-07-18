@@ -87,7 +87,7 @@ class Item implements ValueObjectInterface, Serializable
      *
      * @throws Exception
      */
-    public static function fromNative(): ValueObjectInterface
+    public static function fromNative(): static
     {
         $item = func_get_arg(0);
 

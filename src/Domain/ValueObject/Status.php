@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Jtrw\Micro\Poc\Rpc\Domain\ValueObject;
 
-use Backend\Api\RpcSkeleton\Domain\Exception\StatusInvalidException;
+use Jtrw\Micro\Poc\Rpc\Domain\Exception\StatusInvalidException;
 use MicroModule\ValueObject\Number\Integer;
 
 /**
@@ -53,7 +53,7 @@ class Status extends Integer
      *
      * @phan-suppress PhanParamSignatureRealMismatchReturnType
      */
-    public function inc(): self
+    public function inc(): static
     {
         return $this;
     }
@@ -65,7 +65,7 @@ class Status extends Integer
      *
      * @phan-suppress PhanParamSignatureRealMismatchReturnType
      */
-    public function decr(): self
+    public function decr(): static
     {
         return $this;
     }
