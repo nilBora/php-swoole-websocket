@@ -8,6 +8,11 @@ services:
     public: false
 
   _instanceof:
+    Jtrw\Micro\Poc\Rpc\Application\CommandHandler\CommandHandlerInterface:
+      public: true
+      tags:
+        - { name: tactician.handler, typehints: true, bus: command.create.item }
+
     Jtrw\Micro\Poc\Rpc\Application\QueryHandler\QueryHandlerInterface:
       public: true
       tags:
@@ -22,12 +27,12 @@ services:
       - { name: 'json_rpc_http_server.jsonrpc_method', method: 'ping' }
 
   register.json_rpc:
-    class: Jtrw\Micro\Poc\Rpc\Presentation\Rpc\RegisterMethod
+    class: Jtrw\Micro\Poc\Rpc\Presentation\Rpc\AddMethod
     arguments:
-      - '@tactician.commandbus.command.query.jtrw'
+      - '@tactician.commandbus.command.create.jtrw'
       - '@Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory'
     tags:
-      - { name: 'json_rpc_http_server.jsonrpc_method', method: 'register' }
+      - { name: 'json_rpc_http_server.jsonrpc_method', method: 'add' }
 
   Jtrw\Micro\Poc\Rpc\:
     resource: '../src/*'

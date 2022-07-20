@@ -36,11 +36,11 @@ class CommandFactory implements CommandFactoryInterface
         return new PingCommand();
     }
     
-    public function makeItemRegisterTaskCommand(ItemDto $userDto): CommandInterface
+    public function makeItemRegisterTaskCommand(ItemDto $itemDto): ItemCreateTaskCommand
     {
         $uuid = ProcessUuid::fromNative(null);
-        $item = Item::fromNative($userDto->normalize());
-        
+        $item = Item::fromNative($itemDto->normalize());
+
         return new ItemCreateTaskCommand($uuid, $item);
     }
 }
