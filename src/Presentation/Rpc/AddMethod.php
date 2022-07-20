@@ -7,7 +7,7 @@ use Jtrw\Micro\Poc\Rpc\Domain\Factory\CommandFactory;
 use League\Tactician\CommandBus;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
 
-class RegisterMethod implements JsonRpcMethodInterface
+class AddMethod implements JsonRpcMethodInterface
 {
     /**
      * CommandBus object.
@@ -33,6 +33,7 @@ class RegisterMethod implements JsonRpcMethodInterface
             return null;
         }
         $itemDto = ItemDto::denormalize($paramList);
+
         return $this->commandBus->handle($this->commandFactory->makeItemRegisterTaskCommand($itemDto));
     }
 }

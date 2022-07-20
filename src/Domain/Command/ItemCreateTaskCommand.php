@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Jtrw\Micro\Poc\Rpc\Domain\Command;
 
+use JetBrains\PhpStorm\Pure;
 use Jtrw\Micro\Poc\Rpc\Domain\ValueObject\Item;
 use MicroModule\ValueObject\Identity\UUID;
 
@@ -25,6 +26,7 @@ final class ItemCreateTaskCommand extends ItemCommand
      * @param UUID $processUuid
      * @param Item $item
      */
+    #[Pure]
     public function __construct(UUID $processUuid, Item $item)
     {
         parent::__construct($processUuid);
