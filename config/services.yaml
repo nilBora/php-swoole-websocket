@@ -11,7 +11,7 @@ services:
     Jtrw\Micro\Poc\Rpc\Application\CommandHandler\CommandHandlerInterface:
       public: true
       tags:
-        - { name: tactician.handler, typehints: true, bus: command.create.item }
+        - { name: tactician.handler, typehints: true, bus: command.create.jtrw }
 
     Jtrw\Micro\Poc\Rpc\Application\QueryHandler\QueryHandlerInterface:
       public: true

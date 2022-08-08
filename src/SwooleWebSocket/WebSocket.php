@@ -36,12 +36,12 @@ class WebSocket
         $this->init();
     }
     
-    public function start()
+    public function start(): void
     {
         $this->server->start();
     }
     
-    protected function init()
+    protected function init(): void
     {
         foreach (static::SYSTEM_HANDLERS as $name) {
             $methodName = strtolower($name)."Handler";
@@ -51,7 +51,7 @@ class WebSocket
         }
     }
     
-    protected function messageHandler()
+    protected function messageHandler(): void
     {
         $this->server->on(
             static::MESSAGE_HANDLER,
@@ -66,18 +66,17 @@ class WebSocket
         );
     }
     
-    protected function openHandler()
+    protected function openHandler(): void
     {
         $this->server->on(static::OPEN_HANDLER, function (Server $server, Request $request) {
             CliUtils::s("connection open: {$request->fd}");
-            
             $server->tick(1000, function () use ($server, $request) {
                 $server->push($request->fd, json_encode(["hello", time()]));
             });
         });
     }
     
-    protected function closeHandler()
+    protected function closeHandler(): void
     {
         $this->server->on(static::CLOSE_HANDLER, function (Server $server, int $fd) {
             CliUtils::s("connection close: {$fd}");
