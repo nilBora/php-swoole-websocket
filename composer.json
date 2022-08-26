@@ -12,6 +12,7 @@
         "broadway/broadway-bundle": "^0.6.1",
         "doctrine/dbal": "^3.3",
         "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/doctrine-migrations-bundle": "^2.2",
         "enqueue/enqueue-bundle": "^0.10.16",
         "enqueue/fs": "^0.10.16",
         "enqueue/rdkafka": "^0.10.16",
